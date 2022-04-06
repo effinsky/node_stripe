@@ -14,13 +14,3 @@ app.post("/test", (req: Request, res: Response<Amount>): void => {
     console.log(req.body)
     res.status(200).send({ with_tax: amt * 7 })
 })
-
-interface ResponseBody {
-    name: string
-    age: number
-}
-
-app.post("/content", (req, res: Response<ResponseBody>): void => {
-    console.log(req.body)
-    res.status(200).send({ name: "JSON", age: 20 })
-})
