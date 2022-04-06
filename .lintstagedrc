@@ -1,0 +1,6 @@
+{
+    "src/**/*.{js,ts,tsx,json,md}": [
+        "yarn run lint:fix",
+        "prettier --config .prettierrc.yml --write"
+    ]
+}
