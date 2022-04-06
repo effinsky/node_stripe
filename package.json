@@ -7,11 +7,11 @@
         "lint": "eslint . --ext .js,.ts",
         "lint:fix": "eslint . --ext .js,.ts --fix",
         "format": "prettier --write src/**/*{.ts,.js}",
+        "prepare": "husky install",
         "husky:pre:commit": "lint-staged",
         "build": "tsc",
         "start": "node lib/index.js",
-        "dev": "concurrently \"tsc -w\" \"nodemon lib/index.js\"",
-        "prepare": "husky install"
+        "dev": "concurrently \"tsc -w\" \"nodemon lib/index.js\""
     },
     "dependencies": {
         "cors": "2.8.5",
