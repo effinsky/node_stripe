@@ -1,16 +1,19 @@
 import cors from "cors"
-import express, { Request, Response } from "express"
+import express, { NextFunction, Request, Response } from "express"
+import { create_stripe_checkout_session } from "./checkout"
 export const app = express()
 
 app.use(express.json())
 app.use(cors({ origin: true }))
 
-interface Amount {
-    with_tax: number
-}
+const run_async =
+    (cb: (a: Request, b: Response, c: NextFunction) => void) =>
+    (req: Request, res: Response, next: NextFunction) =>
+        cb(req, res, next)
 
-app.post("/test", (req: Request, res: Response<Amount>): void => {
-    const amt = req.body.amount
-    console.log(req.body)
-    res.status(200).send({ with_tax: amt * 7 })
-})
+app.post(
+    "/checkouts",
+    run_async(async ({ body }: Request, res: Response) => {
+        res.send(await create_stripe_checkout_session(body.line_items))
+    })
+)

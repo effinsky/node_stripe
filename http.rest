@@ -7,7 +7,14 @@ Content-Type: application/json
 }
 
 ###
-POST  http://localhost:3000/content 
+POST  http://localhost:3000/checkouts
 Content-Type: application/json
 
-{}
+{
+    "line_items": [
+        "name": "hat",
+        "amount": 5000000,
+        "currency": "usd",
+        "quantity": 5
+    ]
+}
