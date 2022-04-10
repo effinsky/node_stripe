@@ -7,7 +7,7 @@ Content-Type: application/json
 }
 
 ###
-POST  http://localhost:3000/checkout
+POST  http://localhost:3333/checkout
 Content-Type: application/json
 
 {

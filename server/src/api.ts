@@ -4,7 +4,7 @@ import { create_stripe_checkout_session } from "./services/checkout"
 export const app = express()
 
 app.use(express.json())
-app.use(cors({ origin: true }))
+app.use(cors({ origin: "*" }))
 
 const run_async =
     (cb: (a: Request, b: Response, c: NextFunction) => void) =>
@@ -14,6 +14,7 @@ const run_async =
 app.post(
     "/checkout",
     run_async(async ({ body }: Request, res: Response) => {
+        console.log('server: received POST request to /checkout')
         res.send(await create_stripe_checkout_session(body.line_items))
     })
 )

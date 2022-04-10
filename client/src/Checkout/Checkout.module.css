@@ -1,0 +1,23 @@
+.checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading {
+    font-family: jetbrains mono nl;
+}
+.subheading {
+    font-family: jetbrains mono nl;
+}
+.quantityButton {
+    margin-right: 10;
+    margin-left: 10;
+    border: none;
+    background-color: lightblue;
+}
+.checkoutButton {
+    font-family: jetbrains mono nl;
+    border: none;
+}
+

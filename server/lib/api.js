@@ -9,9 +9,10 @@ const express_1 = __importDefault(require("express"));
 const checkout_1 = require("./services/checkout");
 exports.app = (0, express_1.default)();
 exports.app.use(express_1.default.json());
-exports.app.use((0, cors_1.default)({ origin: true }));
+exports.app.use((0, cors_1.default)({ origin: "*" }));
 const run_async = (cb) => (req, res, next) => cb(req, res, next);
 exports.app.post("/checkout", run_async(async ({ body }, res) => {
+    console.log('server: received POST request to /checkout');
     res.send(await (0, checkout_1.create_stripe_checkout_session)(body.line_items));
 }));
 //# sourceMappingURL=api.js.map
