@@ -1,5 +1,5 @@
 import Stripe from "stripe"
-import { stripe } from "./"
+import { stripe } from ".."
 
 /**
  *  create a stripe checkout session with line items
@@ -17,3 +17,13 @@ export const create_stripe_checkout_session = async (
         cancel_url: `${url}/failed`,
     })
 }
+
+// example line item
+// {
+//     name: "product",
+//     description: "makes you cry",
+//     images: ["path/to/img.png"],
+//     amount: 500,
+//     currency: "usd",
+//     quantity: 1,
+// }

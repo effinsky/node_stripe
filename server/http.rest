@@ -1,0 +1,22 @@
+###
+POST  http://localhost:3000/test 
+Content-Type: application/json
+
+{
+    "amount": 500
+}
+
+###
+POST  http://localhost:3000/checkout
+Content-Type: application/json
+
+{
+    "line_items": [
+        {
+            "name": "hat",
+            "amount": 5000000,
+            "currency": "usd",
+            "quantity": 5
+        }
+    ]
+}

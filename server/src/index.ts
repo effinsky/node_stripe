@@ -7,8 +7,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET, {
-    // check this version if conflicts occur with TS
-    apiVersion: "2020-08-27",
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    apiVersion: "2020-03-02",
 })
 
 const port = process.env.PORT || 666

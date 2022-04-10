@@ -11,8 +11,9 @@ if (process.env.NODE_ENV !== "production") {
     (0, dotenv_1.config)();
 }
 exports.stripe = new stripe_1.default(process.env.STRIPE_SECRET, {
-    // check this version if conflicts occur with TS
-    apiVersion: "2020-08-27",
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    apiVersion: "2020-03-02",
 });
 const port = process.env.PORT || 666;
 api_1.app.listen(port, () => void console.log(`running on port ${port}`));

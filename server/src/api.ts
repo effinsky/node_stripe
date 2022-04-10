@@ -1,6 +1,6 @@
 import cors from "cors"
 import express, { NextFunction, Request, Response } from "express"
-import { create_stripe_checkout_session } from "./checkout"
+import { create_stripe_checkout_session } from "./services/checkout"
 export const app = express()
 
 app.use(express.json())
@@ -12,7 +12,7 @@ const run_async =
         cb(req, res, next)
 
 app.post(
-    "/checkouts",
+    "/checkout",
     run_async(async ({ body }: Request, res: Response) => {
         res.send(await create_stripe_checkout_session(body.line_items))
     })
