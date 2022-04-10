@@ -4,6 +4,7 @@ export const fetch_from_API_post = async (
     endpointURL: string,
     opts: Record<string, unknown>
 ) => {
+    // include any additional data in body
     const { method, body } = { method: "POST", body: null, ...opts }
     const res = await fetch(`${API}/${endpointURL}`, {
         method,

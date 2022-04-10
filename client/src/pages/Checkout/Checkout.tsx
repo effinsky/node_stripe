@@ -1,14 +1,9 @@
 import { useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
-import { fetch_from_API_post } from "../helpers/fetch"
+import { fetch_from_API_post } from "../../helpers/fetch"
 import styles from "./Checkout.module.css"
 
-interface CheckoutProps {
-    testId: string
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function Checkout(_: CheckoutProps) {
+export function Checkout() {
     const stripe = useStripe()
     const [product, set_product] = useState({
         name: "Hat",
@@ -32,6 +27,7 @@ export function Checkout(_: CheckoutProps) {
             body,
         })
 
+        // here stripe redirects to checkout page if successful
         const res = await (stripe &&
             stripe.redirectToCheckout({
                 sessionId: session_id,
@@ -51,11 +47,7 @@ export function Checkout(_: CheckoutProps) {
                 <h4 className={styles.subheading}>
                     Stripe Amount: {product.amount}
                 </h4>{" "}
-                <img
-                    src={product.images[0]}
-                    alt="hat"
-                    width="250px"
-                />
+                <img src={product.images[0]} alt="hat" width="250px" />
                 <div>
                     <button
                         className={styles.quantityButton}
