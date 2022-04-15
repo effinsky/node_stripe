@@ -10,6 +10,7 @@
         "format": "prettier --write src/**/*{.ts,.js}",
         "prepare": "husky install",
         "husky:pre:commit": "lint-staged",
+        "husky:pre:push": "yarn lint:fix",
         "build": "tsc",
         "start": "node lib/index.js",
         "dev": "concurrently \"tsc -w\" \"nodemon lib/index.js\""
